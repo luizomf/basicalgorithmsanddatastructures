@@ -1,3 +1,9 @@
+"""
+Numeric binary search
+
+This is for studies only, there's a way better solution at the end of the file.
+"""
+
 import doctest
 from typing import List
 
@@ -76,4 +82,4 @@ if __name__ == "__main__":
     except ValueError:
         index = -1
 
-    print(index)
+    print(index)  # -1
