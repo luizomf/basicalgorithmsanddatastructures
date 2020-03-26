@@ -65,4 +65,15 @@ def numeric_binary_search(ordered_numbers: List[int], search: int) -> int:
 
 
 if __name__ == "__main__":
-    doctest.testmod(verbose=True)
+    doctest.testmod(verbose=False)
+
+    # Remember - This is for your studies only
+    # You could simply use:
+    my_list = [0, 1, 2, 3]
+
+    try:
+        index = my_list.index(10)
+    except ValueError:
+        index = -1
+
+    print(index)
