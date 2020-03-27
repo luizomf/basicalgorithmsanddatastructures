@@ -39,6 +39,7 @@ except ImportError:
 
 import doctest
 from typing import List
+# ../data
 from data.sorted_names import sorted_names
 
 
