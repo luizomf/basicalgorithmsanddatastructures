@@ -39,7 +39,7 @@ except ImportError:
 
 import doctest
 from typing import List
-from sorted_names import sorted_names
+from data.sorted_names import sorted_names
 
 
 def alphabetical_binary_search(sorted_list: List, search_name: str) -> int:
