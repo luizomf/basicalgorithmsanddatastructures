@@ -1,3 +1,6 @@
+"""
+Linear Search O(n)
+"""
 import re
 from typing import List, Dict
 
