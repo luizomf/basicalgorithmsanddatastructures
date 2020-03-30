@@ -2,7 +2,7 @@ from typing import List
 
 
 class Box:
-    """A box"""
+    """A box that can or cannot have a key"""
 
     def __init__(self, name: str, has_key=False) -> None:
         self.name = name

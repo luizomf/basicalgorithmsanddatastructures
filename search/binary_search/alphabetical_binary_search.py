@@ -30,7 +30,7 @@ try:
         os.path.abspath(
             os.path.join(
                 os.path.dirname(__file__),
-                '../'
+                '../../'
             )
         )
     )
@@ -39,7 +39,7 @@ except ImportError:
 
 import doctest
 from typing import List
-# ../data
+# ../../data
 from data.sorted_names import sorted_names
 
 
