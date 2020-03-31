@@ -1,3 +1,12 @@
+"""
+Recursive function
+
+You may use for for better performance.
+
+Read more about it in:
+http://neopythonic.blogspot.com/2009/04/tail-recursion-elimination.html
+"""
+
 from typing import List
 
 
