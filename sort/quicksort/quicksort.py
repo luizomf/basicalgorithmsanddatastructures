@@ -1,6 +1,8 @@
 """
 Quicksort algorithm
 
+You may not need this in Python
+
 >>> print(quicksort(list_of_numbers))
 [2, 2, 4, 5, 9, 10, 11, 122, 123, 321]
 >>> print(quicksort(list_of_words))
