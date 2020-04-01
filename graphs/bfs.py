@@ -80,12 +80,15 @@ def main() -> None:
 
     bfs_starting_from_a = g.bfs_algorithm('A')
     pprint(bfs_starting_from_a)
+    # ['A', 'F', 'G', 'I', 'L', 'J', 'K', 'O', 'N', 'P']
 
     bfs_starting_from_b = g.bfs_algorithm('B')
     pprint(bfs_starting_from_b)
+    # ['B', 'E', 'D', 'H', 'G', 'M', 'J', 'N', 'K', 'P']
 
     bfs_starting_from_c = g.bfs_algorithm('C')
     pprint(bfs_starting_from_c)
+    # ['C', 'H', 'M', 'N', 'P']
 
 
 if __name__ == "__main__":
