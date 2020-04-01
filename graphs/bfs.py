@@ -54,6 +54,7 @@ class Graph:
 
 def main() -> None:
     sample_graph = Graph()
+
     sample_graph.add_edge('A', 'F')
     sample_graph.add_edge('B', 'E')
     sample_graph.add_edge('B', 'D')
