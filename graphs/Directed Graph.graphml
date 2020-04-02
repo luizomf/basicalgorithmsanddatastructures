@@ -44,7 +44,7 @@
 	</data>
 	<graph id="G" edgedefault="directed">
 		<data key="d5">
-			<y:Json>{"version":"2.0.0","bridge-style":"GAP","theme":{"name":"light","version":"1.0.0"},"layout":"layout-hierarchic","config":{"noObf_useDrawingAsSketch":false,"noObf_selectedElementsIncrementally":false,"noObf_nodeToNodeDistance":30,"noObf_automaticEdgeGroupingEnabled":false,"noObf_considerNodeLabels":true,"noObf_edgeLabeling":1,"noObf_orientation":1,"noObf_edgeRouting":0}}</y:Json>
+			<y:Json>{"version":"2.0.0","bridge-style":"GAP","layout":"layout-tree","config":{"noObf_orientation":1,"noObf_minimumNodeDistance":30,"noObf_minimumLayerDistance":30,"noObf_orthogonalEdgeRouting":false,"noObf_integratedEdgeLabeling":false,"noObf_integratedNodeLabeling":false},"theme":{"name":"light","version":"1.0.0"}}</y:Json>
 		</data>
 		<node id="n0">
 			<data key="d3">
@@ -58,7 +58,7 @@
 				<y:RectD X="0" Y="-140.25" Width="40" Height="43"/>
 			</data>
 			<data key="d6">
-				<y:GraphMLReference ResourceKey="2"/>
+				<demostyle:FlowchartNodeStyle type="start2" fill="#FFA3F1BB"/>
 			</data>
 			<port name="p0">
 				<data key="d15">
@@ -78,7 +78,7 @@
 				<y:RectD X="0" Y="-249.75" Width="40" Height="43"/>
 			</data>
 			<data key="d6">
-				<y:GraphMLReference ResourceKey="2"/>
+				<demostyle:FlowchartNodeStyle type="start2" fill="#FFA3F1BB"/>
 			</data>
 			<port name="p0">
 				<data key="d15">
@@ -158,7 +158,7 @@
 				<y:RectD X="70" Y="-359.25" Width="40" Height="43"/>
 			</data>
 			<data key="d6">
-				<y:GraphMLReference ResourceKey="2"/>
+				<demostyle:FlowchartNodeStyle type="start2" fill="#FFA3F1BB"/>
 			</data>
 			<port name="p0">
 				<data key="d15">
