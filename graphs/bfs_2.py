@@ -1,5 +1,5 @@
 from __future__ import annotations
-from typing import List, Dict, Deque
+from typing import List, Dict, Deque, Set
 from pprint import pprint
 from collections import deque
 
@@ -10,6 +10,7 @@ class Vertex:
     def __init__(self, name: str) -> None:
         self.name = name
         self.neighbors: List[Vertex] = []
+        self.distance = 0
 
     def add_neighbors(self, *vertex: Vertex) -> None:
         for v in vertex:
@@ -19,8 +20,8 @@ class Vertex:
         self.neighbors.clear()
 
     def __repr__(self) -> str:
-        return f'{self.name} -> ' \
-            f'{", ".join([v.name for v in self.neighbors])}'
+        return f'{self.name}{self.distance} -> ' \
+            f'{"|".join([v.name + str(v.distance) for v in self.neighbors])}'
 
 
 class Graph:
@@ -38,11 +39,11 @@ class Graph:
 
     def bfs_algorithm(self, starting_vertex: Vertex) -> List[Vertex]:
         bfs_queue: Deque[Vertex] = deque()
-        visited_vertices: List[Vertex] = []
+        visited_vertices: Set[str] = set()
         bfs_return_value: List[Vertex] = []
 
         bfs_queue.append(starting_vertex)
-        visited_vertices.append(starting_vertex)
+        visited_vertices.add(starting_vertex.name)
 
         while bfs_queue:
             checking_vertex = bfs_queue.popleft()
@@ -51,11 +52,13 @@ class Graph:
             bfs_return_value.append(checking_vertex)
 
             for neighbor in neighbors:
-                if neighbor in visited_vertices:
+                if neighbor.name in visited_vertices:
                     continue
 
-                visited_vertices.append(neighbor)
+                visited_vertices.add(neighbor.name)
                 bfs_queue.append(neighbor)
+                self.graph[neighbor.name].distance = \
+                    checking_vertex.distance + 1
 
         return bfs_return_value
 
@@ -113,9 +116,10 @@ def main() -> None:
     VD.add_neighbors(VX, VC, VF)
     VC.add_neighbors(VX, VD, VF, VV)
     VF.add_neighbors(VD, VC, VV)
+    VV.add_neighbors(VF, VC)
 
     undirected_graph = Graph()
-    undirected_graph.add_vertices(VA, VZ, VS, VX, VD, VC, VF)
+    undirected_graph.add_vertices(VA, VZ, VS, VX, VD, VC, VF, VV)
 
     bfs_undirected_graph_from_s = undirected_graph.bfs_algorithm(VS)
     print('Undirected Graph')
@@ -125,10 +129,11 @@ def main() -> None:
     # Clear vertices
     for vertex in list_of_vertices:
         vertex.clear()
+        vertex.distance = 0
 
     # For directed graph
     VA.add_neighbors(VF)
-    VB.add_neighbors(VE, VF)
+    VB.add_neighbors(VE, VD)
     VC.add_neighbors(VH)
     VD.add_neighbors(VG)
     VE.add_neighbors(VH, VG)
