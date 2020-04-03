@@ -20,8 +20,13 @@ class Vertex:
         self.neighbors.clear()
 
     def __repr__(self) -> str:
-        return f'{self.name}{self.distance} -> ' \
-            f'{"|".join([v.name + str(v.distance) for v in self.neighbors])}'
+        neighbors = "|".join(
+            [
+                f'{v.name}({v.distance})'
+                for v in self.neighbors
+            ]
+        )
+        return f'{self.name}({self.distance}) -> {neighbors}'
 
 
 class Graph:
