@@ -30,7 +30,7 @@ class Vertex:
 
 
 class Graph:
-    """Class Representing a Grapth"""
+    """Class Representing a Graph"""
 
     def __init__(self) -> None:
         self.graph: Dict[str, Vertex] = {}
