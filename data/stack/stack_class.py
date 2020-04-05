@@ -1,5 +1,6 @@
 # append, pop, peek
 # iterar com for e com while
+
 from __future__ import annotations
 from typing import List, Any
 from copy import deepcopy
