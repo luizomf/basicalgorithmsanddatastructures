@@ -23,16 +23,21 @@ class Stack:
     """Classe representando uma stack"""
 
     def __init__(self) -> None:
+        # Representa os itens da nossa stack
         self.__data: List[Any] = []
+        # Representa o índice para iterações com for
         self.__index = 0
 
     def append(self, item: Any) -> None:
+        """Este método repassa as informações para append da lista original"""
         self.__data.append(item)
 
     def pop(self) -> Any:
+        """O mesmo que pop, porém sem aceitar índice"""
         return self.__data.pop()
 
     def peek(self) -> Any:
+        """O mesmo que pop, sem eliminar o topo da pilha"""
         if not self.__data:
             return []
 
