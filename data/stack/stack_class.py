@@ -1,5 +1,18 @@
-# append, pop, peek
-# iterar com for e com while
+"""
+Uma classe que representa uma stack.
+
+Podemos criar uma classe para representação de uma stack. Isso nos permite
+expor apenas os métodos que queremos, da maneira que desejarmos.
+
+Por exemplo: na classe a seguir, vamos expor apenas os métodos append, pop (sem
+permitir índice) e peek (o mesmo que pop, mas sem eliminar o topo da pilha).
+
+Também implementamos os métodos dunder a seguir:
+    - __repr__: para representação da classe
+    - __iter__ e __next__: para iteração com for
+    - __bool__: para iteração com while. O método __bool__ retorna True se
+    nossa stack tiver valores e False se não.
+"""
 
 from __future__ import annotations
 from typing import List, Any
@@ -7,6 +20,8 @@ from copy import deepcopy
 
 
 class Stack:
+    """Classe representando uma stack"""
+
     def __init__(self) -> None:
         self.__data: List[Any] = []
         self.__index = 0
