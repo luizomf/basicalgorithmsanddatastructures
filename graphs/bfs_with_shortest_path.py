@@ -10,7 +10,6 @@ class Vertex:
     def __init__(self, name: str) -> None:
         self.name = name
         self.neighbors: List[Vertex] = []
-        self.distance = 0
 
     def add_neighbors(self, *vertex: Vertex) -> None:
         for v in vertex:
@@ -20,13 +19,7 @@ class Vertex:
         self.neighbors.clear()
 
     def __repr__(self) -> str:
-        neighbors = "|".join(
-            [
-                f'{v.name}({v.distance})'
-                for v in self.neighbors
-            ]
-        )
-        return f'{self.name}({self.distance}) -> {neighbors}'
+        return f'{self.name}'
 
 
 class Graph:
@@ -42,30 +35,58 @@ class Graph:
     def show(self) -> None:
         pprint(self.graph)
 
-    def bfs_algorithm(self, starting_vertex: Vertex) -> List[Vertex]:
-        bfs_queue: Deque[Vertex] = deque()
+    def bfs_algorithm(self, start: Vertex, end: Vertex) -> List[Vertex]:
+        """ BFS Algorithm """
+
+        queue: Deque[Vertex] = deque()
         visited_vertices: Set[str] = set()
-        bfs_return_value: List[Vertex] = []
+        bfs_unsolved: List[Vertex] = []
 
-        bfs_queue.append(starting_vertex)
-        visited_vertices.add(starting_vertex.name)
+        queue.append(start)
+        bfs_unsolved.append(start)
+        visited_vertices.add(start.name)
 
-        while bfs_queue:
-            checking_vertex = bfs_queue.popleft()
-            neighbors = checking_vertex.neighbors
+        if start == end:
+            return [end]
 
-            bfs_return_value.append(checking_vertex)
+        if not self.graph.get(start.name) or not self.graph.get(end.name):
+            return []
+
+        while queue:
+            next_vertext = queue.popleft()
+            neighbors = next_vertext.neighbors
+
+            if end in neighbors:
+                bfs_unsolved.append(next_vertext)
+                break
 
             for neighbor in neighbors:
                 if neighbor.name in visited_vertices:
                     continue
 
                 visited_vertices.add(neighbor.name)
-                bfs_queue.append(neighbor)
-                self.graph[neighbor.name].distance = \
-                    checking_vertex.distance + 1
+                queue.append(neighbor)
+                bfs_unsolved.append(next_vertext)
 
-        return bfs_return_value
+        bfs_unsolved.append(end)
+        shortest_path = self.get_shortest_path(bfs_unsolved)
+
+        return shortest_path
+
+    def get_shortest_path(self, bfs_unsolved: List[Vertex]) -> List[Vertex]:
+        """ Solve BFS and get shortest path """
+        shortest_path = [bfs_unsolved[-1]]
+
+        for vertex in bfs_unsolved[::-1]:
+            prev = shortest_path[-1]
+
+            if vertex in shortest_path:
+                continue
+
+            if prev in vertex.neighbors:
+                shortest_path.append(vertex)
+
+        return shortest_path[::-1]
 
 
 def main() -> None:
@@ -104,39 +125,15 @@ def main() -> None:
 
     VQ = list_of_vertices[16]  # noqa: F841
     VR = list_of_vertices[17]  # noqa: F841
-    VS = list_of_vertices[18]
+    VS = list_of_vertices[18]  # noqa: F841
     VT = list_of_vertices[19]  # noqa: F841
     VU = list_of_vertices[20]  # noqa: F841
-    VV = list_of_vertices[21]
+    VV = list_of_vertices[21]  # noqa: F841
     VW = list_of_vertices[22]  # noqa: F841
-    VX = list_of_vertices[23]
+    VX = list_of_vertices[23]  # noqa: F841
     VY = list_of_vertices[24]  # noqa: F841
-    VZ = list_of_vertices[25]
+    VZ = list_of_vertices[25]  # noqa: F841
 
-    # For undirected graph
-    VA.add_neighbors(VS, VZ)
-    VZ.add_neighbors(VA)
-    VS.add_neighbors(VA, VX)
-    VX.add_neighbors(VS, VD, VC)
-    VD.add_neighbors(VX, VC, VF)
-    VC.add_neighbors(VX, VD, VF, VV)
-    VF.add_neighbors(VD, VC, VV)
-    VV.add_neighbors(VF, VC)
-
-    undirected_graph = Graph()
-    undirected_graph.add_vertices(VA, VZ, VS, VX, VD, VC, VF, VV)
-
-    bfs_undirected_graph_from_s = undirected_graph.bfs_algorithm(VS)
-    print('Undirected Graph')
-    pprint(bfs_undirected_graph_from_s)
-    print()
-
-    # Clear vertices
-    for vertex in list_of_vertices:
-        vertex.clear()
-        vertex.distance = 0
-
-    # For directed graph
     VA.add_neighbors(VF)
     VB.add_neighbors(VE, VD)
     VC.add_neighbors(VH)
@@ -158,19 +155,19 @@ def main() -> None:
     directed_graph.add_vertices(VA, VB, VC, VD, VE, VF, VG, VH,
                                 VI, VJ, VK, VL, VM, VN, VO, VP)
 
-    print('Directed Graph Starting From A')
-    bfs_starting_from_a = directed_graph.bfs_algorithm(VA)
-    pprint(bfs_starting_from_a)
+    print('From A to P')
+    shortest_path_a_to_p = directed_graph.bfs_algorithm(VA, VP)
+    pprint(shortest_path_a_to_p)
     print()
 
-    print('Directed Graph Starting From B')
-    bfs_starting_from_b = directed_graph.bfs_algorithm(VB)
-    pprint(bfs_starting_from_b)
+    print('From B to P')
+    shortest_path_b_to_p = directed_graph.bfs_algorithm(VB, VP)
+    pprint(shortest_path_b_to_p)
     print()
 
-    print('Directed Graph Starting From C')
-    bfs_starting_from_c = directed_graph.bfs_algorithm(VC)
-    pprint(bfs_starting_from_c)
+    print('From C to P')
+    shortest_path_c_to_p = directed_graph.bfs_algorithm(VC, VP)
+    pprint(shortest_path_c_to_p)
     print()
 
 
