@@ -91,6 +91,7 @@ class Graph:
             vertex = self._get_lowest_cost()
 
     def get_shortest_path(self, start: Vertex, end: Vertex) -> List[Vertex]:
+        # Get costs and parents
         self._dijkstra_algorithm(start, end)
 
         if not self._parents or not self.costs:
@@ -102,7 +103,7 @@ class Graph:
         shortest_path = [end]
         vertex: str = self._parents.get(end.name, '')
 
-        for _ in enumerate(self._parents):
+        for _ in self._parents:
             if not vertex:
                 continue
 
