@@ -44,7 +44,7 @@
 	</data>
 	<graph id="G" edgedefault="directed">
 		<data key="d5">
-			<y:Json>{"version":"2.0.0","bridge-style":"GAP","layout":"layout-tree","config":{"noObf_orientation":1,"noObf_minimumNodeDistance":30,"noObf_minimumLayerDistance":30,"noObf_orthogonalEdgeRouting":false,"noObf_integratedEdgeLabeling":false,"noObf_integratedNodeLabeling":false},"theme":{"name":"light","version":"1.0.0"}}</y:Json>
+			<y:Json>{"version":"2.0.0","bridge-style":"GAP","theme":{"name":"light","version":"1.0.0"}}</y:Json>
 		</data>
 		<node id="n0">
 			<data key="d3">
