@@ -109,13 +109,13 @@ class Graph:
         self.main_frame = self.tkinter.main_frame
 
         self.canvas = tk.Canvas(
-            self.main_frame, width=1920,
-            height=1080, background='#f4f4f8'
+            self.main_frame, width=560,
+            height=560, background='#f4f4f8'
         )
         self.canvas.grid(sticky='news')
 
-        self.root.geometry('840x800')
-        self.root.title('Mostrar Grafo Por Tkinter')
+        self.root.geometry('570x570+100+100')
+        self.root.title('Visualizando grafo')
 
     def show_graph_gui(self, shortest_path=None) -> None:
         for vertex in self.graph:
@@ -139,7 +139,7 @@ class Graph:
                 fill='#47B7CA'
             )
             self.root.after(
-                seconds + 1000,
+                seconds + 500,
                 lambda: self._change_vertex_color(iterator, seconds)
             )
         except StopIteration:
@@ -298,22 +298,22 @@ class Graph:
 if __name__ == "__main__":
     graph = Graph()
 
-    va = Vertex(name='a', position=(100, 100))
-    vb = Vertex(name='b', position=(200, 100))
-    vc = Vertex(name='c', position=(300, 100))
-    vd = Vertex(name='d', position=(400, 100))
-    ve = Vertex(name='e', position=(100, 200))
-    vf = Vertex(name='f', position=(200, 200))
-    vg = Vertex(name='g', position=(300, 200))
-    vh = Vertex(name='h', position=(400, 200))
-    vi = Vertex(name='i', position=(100, 300))
-    vj = Vertex(name='j', position=(200, 300))
-    vk = Vertex(name='k', position=(300, 300))
-    vl = Vertex(name='l', position=(400, 300))
-    vm = Vertex(name='m', position=(100, 400))
-    vn = Vertex(name='n', position=(200, 400))
-    vo = Vertex(name='o', position=(300, 400))
-    vp = Vertex(name='p', position=(400, 400))
+    va = Vertex(name='a', position=(10, 10))
+    vb = Vertex(name='b', position=(110, 10))
+    vc = Vertex(name='c', position=(210, 10))
+    vd = Vertex(name='d', position=(310, 10))
+    ve = Vertex(name='e', position=(10, 110))
+    vf = Vertex(name='f', position=(110, 110))
+    vg = Vertex(name='g', position=(210, 110))
+    vh = Vertex(name='h', position=(310, 110))
+    vi = Vertex(name='i', position=(10, 210))
+    vj = Vertex(name='j', position=(110, 210))
+    vk = Vertex(name='k', position=(210, 210))
+    vl = Vertex(name='l', position=(310, 210))
+    vm = Vertex(name='m', position=(10, 310))
+    vn = Vertex(name='n', position=(110, 310))
+    vo = Vertex(name='o', position=(210, 310))
+    vp = Vertex(name='p', position=(310, 310))
 
     va.add_neighbor(neighbor=vb, weight=10)
     va.add_neighbor(neighbor=ve, weight=5)
