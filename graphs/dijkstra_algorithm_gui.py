@@ -8,6 +8,12 @@ from __future__ import annotations
 import math
 import tkinter as tk
 from typing import Dict, List, Optional
+from random import choices
+
+
+def generate_hex_color() -> str:
+    letters_and_numbes = f'ABCDEF0123456789'
+    return '#' + ''.join(choices(letters_and_numbes, k=6))
 
 
 class VertexNotInGraphError(ValueError):
@@ -123,27 +129,36 @@ class Graph:
 
         if shortest_path is not None:
             seconds = 0
-            shortest_path = iter(shortest_path)
+            color = generate_hex_color()
             self.root.after(
                 seconds + 1000,
-                lambda: self._change_vertex_color(shortest_path, seconds)
+                lambda: self._change_vertex_color(
+                    shortest_path, seconds, color
+                )
             )
 
         self.canvas.scale('all', 0, 0, 1.5, 1.5)  # type: ignore
         self.tkinter.mainloop()
 
-    def _change_vertex_color(self, iterator, seconds: int) -> None:
+    def _change_vertex_color(self, vertices, seconds: int, color: str) -> None:
+        if not hasattr(vertices, '__next__'):
+            vertices_iterator = iter(vertices)
+        else:
+            vertices_iterator = vertices
+
         try:
             self.canvas.itemconfig(
-                next(iterator).id - 1,
-                fill='#47B7CA'
+                next(vertices_iterator).id - 1,
+                fill=color
             )
             self.root.after(
                 seconds + 500,
-                lambda: self._change_vertex_color(iterator, seconds)
+                lambda: self._change_vertex_color(
+                    vertices_iterator, seconds, color
+                )
             )
         except StopIteration:
-            ...
+            self.root.after_cancel(1)  # type: ignore
 
     def add_vertex(self, *vertex: Vertex) -> None:
         """Add a vertex or vertices separeted by comma to graph"""
