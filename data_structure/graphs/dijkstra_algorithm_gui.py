@@ -16,11 +16,6 @@ from typing import Dict, List, Optional, Iterator, Tuple
 from random import choices
 
 
-def generate_hex_color() -> str:
-    letters_and_numbes = f'ABCDEF0123456789'
-    return '#' + ''.join(choices(letters_and_numbes, k=6))
-
-
 class VertexNotInGraphError(ValueError):
     ...
 
@@ -29,10 +24,16 @@ class NotAVertexError(TypeError):
     ...
 
 
+def generate_hex_color() -> str:
+    return '#' + ''.join(choices(f'ABCDEF0123456789', k=6))
+
+
 class AutoScrollbar(tk.Scrollbar):
-    # http://effbot.org/zone/tkinter-autoscrollbar.htm
-    # a scrollbar that hides itself if it's not needed.  only
-    # works if you use the grid geometry manager.
+    """ Create a scrollbar that hides automatically
+
+    Came from http://effbot.org/zone/tkinter-autoscrollbar.htm
+    """
+
     def set(self, lo, hi):
         if float(lo) <= 0.0 and float(hi) >= 1.0:
             self.grid_remove()
@@ -95,6 +96,12 @@ class Vertex:
     """A class representing a vertex"""
 
     def __init__(self, name: str, position: Tuple[float, float]) -> None:
+        """Initializer
+
+        Args:
+            name (str): a name/key for the vertex
+            position (Tuple[float, float]): it's position in the gui graph
+        """
         self.name = name
         self.neighbors: Dict[str, float] = {}
         self.position = position
@@ -130,7 +137,11 @@ class Graph:
         self.root.title('Dijkstra Algorithm')
 
     def show_graph_gui(self, shortest_path: List[Vertex] = None) -> None:
-        """ Show graph using tkinter """
+        """Show graph using tkinter
+
+        Args:
+            shortest_path(List[Vertex], optional): Defaults to None.
+        """
         for vertex in self.graph:
             self._add_edge_to_canvas(self.graph[vertex])
 
@@ -154,7 +165,13 @@ class Graph:
         seconds: int,
         color: str
     ) -> None:
-        """ Show shortest path in graph """
+        """Show shortest path in graph
+
+        Args:
+            vertices (Iterator[Vertex]): vertices in the path
+            seconds (int): seconds to start the animation
+            color (str): color for the shortest path
+        """
         try:
             self.canvas.itemconfig(
                 next(vertices).id - 1,
@@ -170,7 +187,11 @@ class Graph:
             self.root.after_cancel(1)  # type: ignore
 
     def add_vertex(self, *vertices: Vertex) -> None:
-        """Add a vertex or vertices separeted by comma to graph"""
+        """Add a vertex or vertices separeted by comma to graph
+
+        Args:
+            vertices: a vertex or vertices separated by comma
+        """
         for vertex in vertices:
             self._check_vertex_type(vertex)
             self.graph[vertex.name] = vertex
@@ -178,7 +199,14 @@ class Graph:
             vertex.id = vertex_id
 
     def _add_vertex_to_canvas(self, vertex: Vertex) -> int:
-        """ Add vertex to canvas - tkinter """
+        """Add vertex to canvas - tkinter
+
+        Args:
+            vertex (Vertex): a vertex to add to the canvas (GUI).
+
+        Returns:
+            int: the id of the vertex in canvas
+        """
         size = 50
 
         x1, y1 = vertex.position
@@ -200,7 +228,11 @@ class Graph:
         return label_id
 
     def _add_edge_to_canvas(self, vertex: Vertex):
-        """Make edge connections from vertex to it's neighbors"""
+        """Make edge connections from vertex to it's neighbors
+
+        Args:
+            vertex (Vertex): parent vertex
+        """
         line_color = '#F7D765'
 
         coors1 = self.canvas.coords(vertex.id)  # type: ignore
@@ -240,13 +272,28 @@ class Graph:
             raise NotAVertexError(f'{vertex} has to be of type Vertex')
 
     def _check_vertex_in_graph(self, vertex: Vertex) -> None:
+        """Check to see if the vertex is in the graph
+
+        Args:
+            vertex (Vertex): a vertex
+
+        Raises:
+            VertexNotInGraphError: if the vertex is not in graph
+        """
         self._check_vertex_type(vertex)
 
         if not self.graph.get(vertex.name):
             raise VertexNotInGraphError(f'{vertex} not in graph')
 
     def _set_initial_data(self, vertex: Vertex):
-        """Fill costs and parents initial data"""
+        """Fill costs and parents initial data
+
+        Args:
+            vertex (Vertex): a vertex
+
+        Raises:
+            VertexNotInGraphError: if the vertex is not in graph
+        """
         self._check_vertex_type(vertex)
 
         if vertex.name not in self.graph:
@@ -288,7 +335,15 @@ class Graph:
             head_vertex = self._get_lowest_cost()
 
     def get_shortest_path(self, start: Vertex, end: Vertex) -> List[Vertex]:
-        # Get costs and parents
+        """Get shortest path base on the dijkstra algorithm return
+
+        Args:
+            start (Vertex): start vertex
+            end (Vertex): end vertex
+
+        Returns:
+            List[Vertex]: a list with the shortest path
+        """
         self._dijkstra_algorithm(start, end)
 
         if not self._parents or not self.costs:
@@ -310,7 +365,7 @@ class Graph:
         return shortest_path[::-1]
 
     def _get_lowest_cost(self) -> Optional[Vertex]:
-        """ Get lowest cost vertex in costs """
+        """ Get the vertex with the lowest cost in costs """
         lowest_cost: float = math.inf
         vertex_with_lowest_cost = None
 
