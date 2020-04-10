@@ -4,7 +4,9 @@ show dijkstra algorithm visually
 using tkinter (GUI)
 
 If you need to check something here, just
-copy and paste the full file and you'll see
+copy and paste the full file and execute it.
+
+Python 3.8.0
 """
 
 from __future__ import annotations
@@ -128,7 +130,7 @@ class Graph:
 
     def show_graph_gui(self, shortest_path=None) -> None:
         for vertex in self.graph:
-            self.add_edge_to_canvas(self.graph[vertex])
+            self._add_edge_to_canvas(self.graph[vertex])
 
         if shortest_path is not None:
             seconds = 0
@@ -168,10 +170,10 @@ class Graph:
         for v in vertex:
             self._check_vertex_type(v)
             self.graph[v.name] = v
-            vertex_id = self.add_vertex_to_canvas(v)
+            vertex_id = self._add_vertex_to_canvas(v)
             v.id = vertex_id
 
-    def add_vertex_to_canvas(self, vertex: Vertex) -> int:
+    def _add_vertex_to_canvas(self, vertex: Vertex) -> int:
         size = 50
 
         x1, y1 = vertex.position
@@ -192,7 +194,7 @@ class Graph:
 
         return label_id
 
-    def add_edge_to_canvas(self, vertex: Vertex):
+    def _add_edge_to_canvas(self, vertex: Vertex):
         line_color = '#F7D765'
         coors1 = self.canvas.coords(vertex.id)  # type: ignore
 
