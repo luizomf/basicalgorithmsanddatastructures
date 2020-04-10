@@ -12,7 +12,7 @@ Python 3.8.0
 from __future__ import annotations
 import math
 import tkinter as tk
-from typing import Dict, List, Optional
+from typing import Dict, List, Optional, Iterator, Tuple
 from random import choices
 
 
@@ -94,7 +94,7 @@ class TkinterBoilerplate:
 class Vertex:
     """A class representing a vertex"""
 
-    def __init__(self, name: str, position: tuple) -> None:
+    def __init__(self, name: str, position: Tuple[float, float]) -> None:
         self.name = name
         self.neighbors: Dict[str, float] = {}
         self.position = position
@@ -129,7 +129,7 @@ class Graph:
         self.root.geometry('570x570+100+100')
         self.root.title('Dijkstra Algorithm')
 
-    def show_graph_gui(self, shortest_path=None) -> None:
+    def show_graph_gui(self, shortest_path: List[Vertex] = None) -> None:
         """ Show graph using tkinter """
         for vertex in self.graph:
             self._add_edge_to_canvas(self.graph[vertex])
@@ -140,7 +140,7 @@ class Graph:
             self.root.after(
                 seconds + 1000,
                 lambda: self._change_vertex_color(
-                    shortest_path, seconds, color
+                    iter(shortest_path), seconds, color
                 )
             )
 
@@ -148,34 +148,34 @@ class Graph:
         self.canvas.scale('all', 0, 0, 1.5, 1.5)  # type: ignore
         self.tkinter.mainloop()
 
-    def _change_vertex_color(self, vertices, seconds: int, color: str) -> None:
+    def _change_vertex_color(
+        self,
+        vertices: Iterator[Vertex],
+        seconds: int,
+        color: str
+    ) -> None:
         """ Show shortest path in graph """
-        if not hasattr(vertices, '__next__'):
-            vertices_iterator = iter(vertices)
-        else:
-            vertices_iterator = vertices
-
         try:
             self.canvas.itemconfig(
-                next(vertices_iterator).id - 1,
+                next(vertices).id - 1,
                 fill=color
             )
             self.root.after(
                 seconds + 500,
                 lambda: self._change_vertex_color(
-                    vertices_iterator, seconds, color
+                    vertices, seconds, color
                 )
             )
         except StopIteration:
             self.root.after_cancel(1)  # type: ignore
 
-    def add_vertex(self, *vertex: Vertex) -> None:
+    def add_vertex(self, *vertices: Vertex) -> None:
         """Add a vertex or vertices separeted by comma to graph"""
-        for v in vertex:
-            self._check_vertex_type(v)
-            self.graph[v.name] = v
-            vertex_id = self._add_vertex_to_canvas(v)
-            v.id = vertex_id
+        for vertex in vertices:
+            self._check_vertex_type(vertex)
+            self.graph[vertex.name] = vertex
+            vertex_id = self._add_vertex_to_canvas(vertex)
+            vertex.id = vertex_id
 
     def _add_vertex_to_canvas(self, vertex: Vertex) -> int:
         """ Add vertex to canvas - tkinter """
@@ -193,7 +193,7 @@ class Graph:
             width=0
         )  # type: ignore
 
-        label_id: int = self.canvas.create_text(
+        label_id = self.canvas.create_text(
             (x1_text, y1_text), text=vertex.name, fill="#FFF"
         )  # type: ignore
 
@@ -202,10 +202,11 @@ class Graph:
     def _add_edge_to_canvas(self, vertex: Vertex):
         """Make edge connections from vertex to it's neighbors"""
         line_color = '#F7D765'
+
         coors1 = self.canvas.coords(vertex.id)  # type: ignore
 
-        for n in vertex.neighbors:
-            neighbor: Vertex = self.graph[n]
+        for vertex_name in vertex.neighbors:
+            neighbor: Vertex = self.graph[vertex_name]
             coors2 = self.canvas.coords(neighbor.id)  # type: ignore
 
             x1, y1 = coors1
@@ -225,10 +226,10 @@ class Graph:
                 arrowshape='8 10 2', capstyle="projecting"
             )  # type: ignore
 
-            if vertex.neighbors[n] is not None:
+            if vertex.neighbors[vertex_name] is not None:
                 label = self.canvas.create_text(  # noqa
                     ((x1 + x2) / 2, (y1 + y2) / 2),
-                    text=f'{vertex.neighbors[n]}', fill='black'
+                    text=f'{vertex.neighbors[vertex_name]}', fill='black'
                 )  # type: ignore
 
             self.canvas.tag_lower(line)  # type: ignore
@@ -251,9 +252,9 @@ class Graph:
         if vertex.name not in self.graph:
             raise VertexNotInGraphError(f'{vertex.name} not in graph')
 
-        for name, cost in vertex.neighbors.items():
-            self.costs[name] = cost
-            self._parents[name] = vertex.name
+        for vertex_name, vertex_cost in vertex.neighbors.items():
+            self.costs[vertex_name] = vertex_cost
+            self._parents[vertex_name] = vertex.name
 
     def _set_initial_attributes(self) -> None:
         """Declare initial attributes"""
