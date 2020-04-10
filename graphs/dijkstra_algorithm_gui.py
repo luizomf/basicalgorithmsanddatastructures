@@ -2,6 +2,9 @@
 This code is a mess, it's only for me to
 show dijkstra algorithm visually
 using tkinter (GUI)
+
+If you need to check something here, just
+copy and paste the full file and you'll see
 """
 
 from __future__ import annotations
@@ -121,7 +124,7 @@ class Graph:
         self.canvas.grid(sticky='news')
 
         self.root.geometry('570x570+100+100')
-        self.root.title('Visualizando grafo')
+        self.root.title('Dijkstra Algorithm')
 
     def show_graph_gui(self, shortest_path=None) -> None:
         for vertex in self.graph:
