@@ -113,8 +113,9 @@ class Graph:
 
     def __init__(self) -> None:
         self.graph: Dict[str, Vertex] = {}
-        self._reset()
+        self._set_initial_attributes()
 
+        # From here on, only tkinter setup
         self.tkinter = TkinterBoilerplate()
         self.root = self.tkinter.root
         self.main_frame = self.tkinter.main_frame
@@ -129,6 +130,7 @@ class Graph:
         self.root.title('Dijkstra Algorithm')
 
     def show_graph_gui(self, shortest_path=None) -> None:
+        """ Show graph using tkinter """
         for vertex in self.graph:
             self._add_edge_to_canvas(self.graph[vertex])
 
@@ -142,10 +144,12 @@ class Graph:
                 )
             )
 
+        # tkinter
         self.canvas.scale('all', 0, 0, 1.5, 1.5)  # type: ignore
         self.tkinter.mainloop()
 
     def _change_vertex_color(self, vertices, seconds: int, color: str) -> None:
+        """ Show shortest path in graph """
         if not hasattr(vertices, '__next__'):
             vertices_iterator = iter(vertices)
         else:
@@ -174,6 +178,7 @@ class Graph:
             v.id = vertex_id
 
     def _add_vertex_to_canvas(self, vertex: Vertex) -> int:
+        """ Add vertex to canvas - tkinter """
         size = 50
 
         x1, y1 = vertex.position
@@ -195,6 +200,7 @@ class Graph:
         return label_id
 
     def _add_edge_to_canvas(self, vertex: Vertex):
+        """Make edge connections from vertex to it's neighbors"""
         line_color = '#F7D765'
         coors1 = self.canvas.coords(vertex.id)  # type: ignore
 
@@ -228,6 +234,7 @@ class Graph:
             self.canvas.tag_lower(line)  # type: ignore
 
     def _check_vertex_type(self, vertex: Vertex) -> None:
+        """All vertices need to use Vertex class"""
         if not isinstance(vertex, Vertex):
             raise NotAVertexError(f'{vertex} has to be of type Vertex')
 
@@ -237,7 +244,8 @@ class Graph:
         if not self.graph.get(vertex.name):
             raise VertexNotInGraphError(f'{vertex} not in graph')
 
-    def _set_starting_data(self, vertex: Vertex):
+    def _set_initial_data(self, vertex: Vertex):
+        """Fill costs and parents initial data"""
         self._check_vertex_type(vertex)
 
         if vertex.name not in self.graph:
@@ -247,14 +255,15 @@ class Graph:
             self.costs[name] = cost
             self._parents[name] = vertex.name
 
-    def _reset(self) -> None:
+    def _set_initial_attributes(self) -> None:
+        """Declare initial attributes"""
         self.costs: Dict[str, float] = {}
         self._parents: Dict[str, str] = {}
         self._visited_vertices: List[Vertex] = []
 
     def _dijkstra_algorithm(self, start: Vertex, end: Vertex) -> None:
-        self._reset()
-        self._set_starting_data(start)
+        self._set_initial_attributes()
+        self._set_initial_data(start)
 
         if start == end:
             return
@@ -262,20 +271,20 @@ class Graph:
         self._check_vertex_in_graph(start)
         self._check_vertex_in_graph(end)
 
-        vertex = self._get_lowest_cost()
+        head_vertex = self._get_lowest_cost()
 
-        while vertex:
-            for neighbor, cost in vertex.neighbors.items():
+        while head_vertex:
+            for neighbor, cost in head_vertex.neighbors.items():
                 if cost < self.costs.get(neighbor, math.inf):
-                    self.costs[neighbor] = cost + self.costs[vertex.name]
-                    self._parents[neighbor] = vertex.name
+                    self.costs[neighbor] = cost + self.costs[head_vertex.name]
+                    self._parents[neighbor] = head_vertex.name
 
-            self._visited_vertices.append(vertex)
+            self._visited_vertices.append(head_vertex)
 
-            if vertex == end:
+            if head_vertex == end:
                 break
 
-            vertex = self._get_lowest_cost()
+            head_vertex = self._get_lowest_cost()
 
     def get_shortest_path(self, start: Vertex, end: Vertex) -> List[Vertex]:
         # Get costs and parents
@@ -300,6 +309,7 @@ class Graph:
         return shortest_path[::-1]
 
     def _get_lowest_cost(self) -> Optional[Vertex]:
+        """ Get lowest cost vertex in costs """
         lowest_cost: float = math.inf
         vertex_with_lowest_cost = None
 
