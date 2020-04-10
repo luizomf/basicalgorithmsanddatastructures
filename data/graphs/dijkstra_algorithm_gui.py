@@ -50,9 +50,9 @@ class AutoScrollbar(tk.Scrollbar):
 
 class TkinterBoilerplate:
     def __init__(self) -> None:
-        self.setup()
+        self._setup()
 
-    def setup(self) -> None:
+    def _setup(self) -> None:
         self.root = tk.Tk()
 
         vscrollbar = AutoScrollbar(self.root)
@@ -369,8 +369,10 @@ if __name__ == "__main__":
     vn.add_neighbor(neighbor=vj, weight=7)
     vo.add_neighbor(neighbor=vp, weight=1)
 
-    graph.add_vertex(va, vb, vc, vd, ve, vf, vg, vh,
-                     vi, vj, vk, vl, vm, vn, vo, vp)
+    graph.add_vertex(
+        va, vb, vc, vd, ve, vf, vg, vh,
+        vi, vj, vk, vl, vm, vn, vo, vp
+    )
 
     shortest_path = graph.get_shortest_path(start=va, end=vp)
 
