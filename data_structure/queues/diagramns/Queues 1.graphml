@@ -1,0 +1,341 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--Created by yFiles for HTML 2.2.0.3-->
+<graphml xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://www.yworks.com/xml/schema/graphml.html/2.0/ygraphml.xsd " xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:demostyle="http://www.yworks.com/yFilesHTML/demos/FlatDemoStyle/1.0" xmlns:icon-style="http://www.yworks.com/yed-live/icon-style/1.0" xmlns:bpmn="http://www.yworks.com/xml/yfiles-bpmn/2.0" xmlns:demotablestyle="http://www.yworks.com/yFilesHTML/demos/FlatDemoTableStyle/1.0" xmlns:uml="http://www.yworks.com/yFilesHTML/demos/UMLDemoStyle/1.0" xmlns:compat="http://www.yworks.com/xml/yfiles-compat-arrows/1.0" xmlns:GraphvizNodeStyle="http://www.yworks.com/yFilesHTML/graphviz-node-style/1.0" xmlns:VuejsNodeStyle="http://www.yworks.com/demos/yfiles-vuejs-node-style/1.0" xmlns:y="http://www.yworks.com/xml/yfiles-common/3.0" xmlns:x="http://www.yworks.com/xml/yfiles-common/markup/3.0" xmlns:yjs="http://www.yworks.com/xml/yfiles-for-html/2.0/xaml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<key id="d0" for="node" attr.type="boolean" attr.name="Expanded" y:attr.uri="http://www.yworks.com/xml/yfiles-common/2.0/folding/Expanded">
+		<default>true</default>
+	</key>
+	<key id="d1" for="node" attr.type="string" attr.name="url"/>
+	<key id="d2" for="node" attr.type="string" attr.name="description"/>
+	<key id="d3" for="node" attr.name="NodeLabels" y:attr.uri="http://www.yworks.com/xml/yfiles-common/2.0/NodeLabels"/>
+	<key id="d4" for="node" attr.name="NodeGeometry" y:attr.uri="http://www.yworks.com/xml/yfiles-common/2.0/NodeGeometry"/>
+	<key id="d5" for="all" attr.name="UserTags" y:attr.uri="http://www.yworks.com/xml/yfiles-common/2.0/UserTags"/>
+	<key id="d6" for="node" attr.name="NodeStyle" y:attr.uri="http://www.yworks.com/xml/yfiles-common/2.0/NodeStyle"/>
+	<key id="d7" for="node" attr.name="NodeViewState" y:attr.uri="http://www.yworks.com/xml/yfiles-common/2.0/folding/1.1/NodeViewState"/>
+	<key id="d8" for="edge" attr.type="string" attr.name="url"/>
+	<key id="d9" for="edge" attr.type="string" attr.name="description"/>
+	<key id="d10" for="edge" attr.name="EdgeLabels" y:attr.uri="http://www.yworks.com/xml/yfiles-common/2.0/EdgeLabels"/>
+	<key id="d11" for="edge" attr.name="EdgeGeometry" y:attr.uri="http://www.yworks.com/xml/yfiles-common/2.0/EdgeGeometry"/>
+	<key id="d12" for="edge" attr.name="EdgeStyle" y:attr.uri="http://www.yworks.com/xml/yfiles-common/2.0/EdgeStyle"/>
+	<key id="d13" for="edge" attr.name="EdgeViewState" y:attr.uri="http://www.yworks.com/xml/yfiles-common/2.0/folding/1.1/EdgeViewState"/>
+	<key id="d14" for="port" attr.name="PortLabels" y:attr.uri="http://www.yworks.com/xml/yfiles-common/2.0/PortLabels"/>
+	<key id="d15" for="port" attr.name="PortLocationParameter" y:attr.uri="http://www.yworks.com/xml/yfiles-common/2.0/PortLocationParameter">
+		<default>
+			<x:Static Member="y:FreeNodePortLocationModel.NodeCenterAnchored"/>
+		</default>
+	</key>
+	<key id="d16" for="port" attr.name="PortStyle" y:attr.uri="http://www.yworks.com/xml/yfiles-common/2.0/PortStyle">
+		<default>
+			<x:Static Member="y:VoidPortStyle.Instance"/>
+		</default>
+	</key>
+	<key id="d17" for="port" attr.name="PortViewState" y:attr.uri="http://www.yworks.com/xml/yfiles-common/2.0/folding/1.1/PortViewState"/>
+	<key id="d18" attr.name="SharedData" y:attr.uri="http://www.yworks.com/xml/yfiles-common/2.0/SharedData"/>
+	<data key="d18">
+		<y:SharedData>
+			<yjs:DefaultLabelStyle x:Key="1" verticalTextAlignment="CENTER" horizontalTextAlignment="CENTER" clipText="false" textFill="BLACK">
+				<yjs:DefaultLabelStyle.font>
+					<yjs:Font fontSize="12" fontFamily="'Arial'"/>
+				</yjs:DefaultLabelStyle.font>
+			</yjs:DefaultLabelStyle>
+			<demostyle:FlowchartNodeStyle x:Key="2" type="process" fill="#FFFFF222"/>
+			<yjs:DefaultLabelStyle x:Key="3" verticalTextAlignment="CENTER" horizontalTextAlignment="CENTER" clipText="false" textFill="BLACK" textSize="16">
+				<yjs:DefaultLabelStyle.font>
+					<yjs:Font fontSize="16" fontFamily="'Arial'"/>
+				</yjs:DefaultLabelStyle.font>
+			</yjs:DefaultLabelStyle>
+			<demostyle:FlowchartNodeStyle x:Key="4" type="process" stroke="#00000000" fill="#00D2DEEE"/>
+			<y:RatioAnchoredLabelModelParameter x:Key="5" LayoutOffset="23.5,76"/>
+			<bpmn:AnnotationLabelStyle x:Key="6"/>
+			<y:Json x:Key="7">{"type":"annotation-item-type"}</y:Json>
+			<yjs:PolylineEdgeStyle x:Key="8" smoothingLength="10">
+				<yjs:PolylineEdgeStyle.stroke>
+					<yjs:Stroke fill="#FF000000" thickness="0.75"/>
+				</yjs:PolylineEdgeStyle.stroke>
+				<yjs:PolylineEdgeStyle.targetArrow>
+					<yjs:Arrow stroke="#FF000000" fill="#FF000000"/>
+				</yjs:PolylineEdgeStyle.targetArrow>
+			</yjs:PolylineEdgeStyle>
+		</y:SharedData>
+	</data>
+	<graph id="G" edgedefault="directed">
+		<data key="d5">
+			<y:Json>{"version":"2.0.0","bridge-style":"GAP","theme":{"name":"light","version":"1.0.0"}}</y:Json>
+		</data>
+		<node id="n0">
+			<data key="d3">
+				<x:List>
+					<y:Label LayoutParameter="{x:Static y:InteriorStretchLabelModel.Center}" Style="{y:GraphMLReference 1}">
+						<y:Label.Text>A</y:Label.Text>
+					</y:Label>
+					<y:Label>
+						<y:Label.Text><![CDATA[Índice 0]]></y:Label.Text>
+						<y:Label.LayoutParameter>
+							<y:RatioAnchoredLabelModelParameter LayoutOffset="23.5,76"/>
+						</y:Label.LayoutParameter>
+						<y:Label.Style>
+							<bpmn:AnnotationLabelStyle/>
+						</y:Label.Style>
+						<y:Label.Tag>
+							<y:Json>{"type":"annotation-item-type"}</y:Json>
+						</y:Label.Tag>
+					</y:Label>
+					<y:Label>
+						<y:Label.Text><![CDATA[Cabeça (Head)]]></y:Label.Text>
+						<y:Label.LayoutParameter>
+							<y:RatioAnchoredLabelModelParameter LayoutOffset="-121.5,13"/>
+						</y:Label.LayoutParameter>
+						<y:Label.Style>
+							<bpmn:AnnotationLabelStyle/>
+						</y:Label.Style>
+						<y:Label.Tag>
+							<y:Json>{"type":"annotation-item-type"}</y:Json>
+						</y:Label.Tag>
+					</y:Label>
+				</x:List>
+			</data>
+			<data key="d4">
+				<y:RectD X="-114.5" Y="-564.5" Width="50" Height="50"/>
+			</data>
+			<data key="d6">
+				<y:GraphMLReference ResourceKey="2"/>
+			</data>
+		</node>
+		<node id="n1">
+			<data key="d3">
+				<x:List>
+					<y:Label LayoutParameter="{x:Static y:InteriorStretchLabelModel.Center}" Style="{y:GraphMLReference 1}">
+						<y:Label.Text>B</y:Label.Text>
+					</y:Label>
+					<y:Label>
+						<y:Label.Text><![CDATA[Índice 1]]></y:Label.Text>
+						<y:Label.LayoutParameter>
+							<y:RatioAnchoredLabelModelParameter LayoutOffset="23.5,76"/>
+						</y:Label.LayoutParameter>
+						<y:Label.Style>
+							<bpmn:AnnotationLabelStyle/>
+						</y:Label.Style>
+						<y:Label.Tag>
+							<y:Json>{"type":"annotation-item-type"}</y:Json>
+						</y:Label.Tag>
+					</y:Label>
+				</x:List>
+			</data>
+			<data key="d4">
+				<y:RectD X="-42.5" Y="-564.5" Width="50" Height="50"/>
+			</data>
+			<data key="d6">
+				<y:GraphMLReference ResourceKey="2"/>
+			</data>
+		</node>
+		<node id="n2">
+			<data key="d3">
+				<x:List>
+					<y:Label LayoutParameter="{x:Static y:InteriorStretchLabelModel.Center}" Style="{y:GraphMLReference 1}">
+						<y:Label.Text>C</y:Label.Text>
+					</y:Label>
+					<y:Label>
+						<y:Label.Text><![CDATA[Índice 2]]></y:Label.Text>
+						<y:Label.LayoutParameter>
+							<y:RatioAnchoredLabelModelParameter LayoutOffset="23.5,76"/>
+						</y:Label.LayoutParameter>
+						<y:Label.Style>
+							<bpmn:AnnotationLabelStyle/>
+						</y:Label.Style>
+						<y:Label.Tag>
+							<y:Json>{"type":"annotation-item-type"}</y:Json>
+						</y:Label.Tag>
+					</y:Label>
+				</x:List>
+			</data>
+			<data key="d4">
+				<y:RectD X="29.5" Y="-564.5" Width="50" Height="50"/>
+			</data>
+			<data key="d6">
+				<y:GraphMLReference ResourceKey="2"/>
+			</data>
+		</node>
+		<node id="n3">
+			<data key="d3">
+				<x:List>
+					<y:Label LayoutParameter="{x:Static y:InteriorStretchLabelModel.Center}" Style="{y:GraphMLReference 1}">
+						<y:Label.Text>D</y:Label.Text>
+					</y:Label>
+				</x:List>
+			</data>
+			<data key="d4">
+				<y:RectD X="173.5" Y="-637.25" Width="50" Height="50"/>
+			</data>
+			<data key="d6">
+				<y:GraphMLReference ResourceKey="2"/>
+			</data>
+			<port name="p0"/>
+			<port name="p1">
+				<data key="d15">
+					<y:FreeNodePortLocationModelParameter Ratio="0.019230769230769218,0.5"/>
+				</data>
+			</port>
+		</node>
+		<node id="n4">
+			<data key="d3">
+				<x:List>
+					<y:Label>
+						<y:Label.Text><![CDATA[Cauda (Tail)]]></y:Label.Text>
+						<y:Label.LayoutParameter>
+							<y:RatioAnchoredLabelModelParameter LayoutOffset="83.5,76"/>
+						</y:Label.LayoutParameter>
+						<y:Label.Style>
+							<bpmn:AnnotationLabelStyle/>
+						</y:Label.Style>
+						<y:Label.Tag>
+							<y:Json>{"type":"annotation-item-type"}</y:Json>
+						</y:Label.Tag>
+					</y:Label>
+				</x:List>
+			</data>
+			<data key="d4">
+				<y:RectD X="101.5" Y="-564.5" Width="50" Height="50"/>
+			</data>
+			<data key="d6">
+				<demostyle:FlowchartNodeStyle type="process" fill="WHITE">
+					<demostyle:FlowchartNodeStyle.stroke>
+						<yjs:Stroke fill="BLACK" lineCap="SQUARE" dashStyle="Dash"/>
+					</demostyle:FlowchartNodeStyle.stroke>
+				</demostyle:FlowchartNodeStyle>
+			</data>
+			<port name="p0">
+				<data key="d15">
+					<y:FreeNodePortLocationModelParameter Ratio="0.9807692307692308,0.5"/>
+				</data>
+			</port>
+		</node>
+		<node id="n5">
+			<data key="d3">
+				<x:List>
+					<y:Label LayoutParameter="{x:Static y:InteriorStretchLabelModel.Center}" Style="{y:GraphMLReference 1}">
+						<y:Label.Text>A</y:Label.Text>
+					</y:Label>
+					<y:Label LayoutParameter="{y:GraphMLReference 5}" Style="{y:GraphMLReference 6}" Tag="{y:GraphMLReference 7}">
+						<y:Label.Text><![CDATA[Índice 0]]></y:Label.Text>
+					</y:Label>
+					<y:Label>
+						<y:Label.Text><![CDATA[Cabeça (Head)]]></y:Label.Text>
+						<y:Label.LayoutParameter>
+							<y:RatioAnchoredLabelModelParameter LayoutOffset="-130.5,13"/>
+						</y:Label.LayoutParameter>
+						<y:Label.Style>
+							<bpmn:AnnotationLabelStyle/>
+						</y:Label.Style>
+						<y:Label.Tag>
+							<y:Json>{"type":"annotation-item-type"}</y:Json>
+						</y:Label.Tag>
+					</y:Label>
+				</x:List>
+			</data>
+			<data key="d4">
+				<y:RectD X="-42.5" Y="-833" Width="50" Height="50"/>
+			</data>
+			<data key="d6">
+				<y:GraphMLReference ResourceKey="2"/>
+			</data>
+		</node>
+		<node id="n6">
+			<data key="d3">
+				<x:List>
+					<y:Label LayoutParameter="{x:Static y:InteriorStretchLabelModel.Center}" Style="{y:GraphMLReference 3}">
+						<y:Label.Text><![CDATA[Uma fila com elementos A, B e C]]></y:Label.Text>
+					</y:Label>
+				</x:List>
+			</data>
+			<data key="d4">
+				<y:RectD X="-95.875" Y="-899" Width="300.75" Height="50"/>
+			</data>
+			<data key="d6">
+				<y:GraphMLReference ResourceKey="4"/>
+			</data>
+		</node>
+		<node id="n7">
+			<data key="d3">
+				<x:List>
+					<y:Label LayoutParameter="{x:Static y:InteriorStretchLabelModel.Center}" Style="{y:GraphMLReference 3}">
+						<y:Label.Text><![CDATA[Adição do elemento D na mesma fila]]></y:Label.Text>
+					</y:Label>
+				</x:List>
+			</data>
+			<data key="d4">
+				<y:RectD X="-95.875" Y="-696" Width="300.75" Height="50"/>
+			</data>
+			<data key="d6">
+				<y:GraphMLReference ResourceKey="4"/>
+			</data>
+			<port name="p0"/>
+		</node>
+		<node id="n8">
+			<data key="d3">
+				<x:List>
+					<y:Label LayoutParameter="{x:Static y:InteriorStretchLabelModel.Center}" Style="{y:GraphMLReference 1}">
+						<y:Label.Text>B</y:Label.Text>
+					</y:Label>
+					<y:Label LayoutParameter="{y:GraphMLReference 5}" Style="{y:GraphMLReference 6}" Tag="{y:GraphMLReference 7}">
+						<y:Label.Text><![CDATA[Índice 1]]></y:Label.Text>
+					</y:Label>
+				</x:List>
+			</data>
+			<data key="d4">
+				<y:RectD X="29.5" Y="-833" Width="50" Height="50"/>
+			</data>
+			<data key="d6">
+				<y:GraphMLReference ResourceKey="2"/>
+			</data>
+		</node>
+		<node id="n9">
+			<data key="d3">
+				<x:List>
+					<y:Label LayoutParameter="{x:Static y:InteriorStretchLabelModel.Center}" Style="{y:GraphMLReference 1}">
+						<y:Label.Text>C</y:Label.Text>
+					</y:Label>
+					<y:Label LayoutParameter="{y:GraphMLReference 5}" Style="{y:GraphMLReference 6}" Tag="{y:GraphMLReference 7}">
+						<y:Label.Text><![CDATA[Índice 2]]></y:Label.Text>
+					</y:Label>
+					<y:Label>
+						<y:Label.Text><![CDATA[Cauda (Tail)]]></y:Label.Text>
+						<y:Label.LayoutParameter>
+							<y:RatioAnchoredLabelModelParameter LayoutOffset="87.5,13"/>
+						</y:Label.LayoutParameter>
+						<y:Label.Style>
+							<bpmn:AnnotationLabelStyle/>
+						</y:Label.Style>
+						<y:Label.Tag>
+							<y:Json>{"type":"annotation-item-type"}</y:Json>
+						</y:Label.Tag>
+					</y:Label>
+				</x:List>
+			</data>
+			<data key="d4">
+				<y:RectD X="101.5" Y="-833" Width="50" Height="50"/>
+			</data>
+			<data key="d6">
+				<y:GraphMLReference ResourceKey="2"/>
+			</data>
+		</node>
+		<edge id="e0" source="n3" target="n4" sourceport="p0" targetport="p0">
+			<data key="d11">
+				<x:List>
+					<y:Bend Location="198.5,-539.5"/>
+				</x:List>
+			</data>
+			<data key="d12">
+				<y:GraphMLReference ResourceKey="8"/>
+			</data>
+		</edge>
+		<edge id="e1" source="n7" target="n3" sourceport="p0" targetport="p1">
+			<data key="d11">
+				<x:List>
+					<y:Bend Location="54.5,-612.25"/>
+				</x:List>
+			</data>
+			<data key="d12">
+				<y:GraphMLReference ResourceKey="8"/>
+			</data>
+		</edge>
+	</graph>
+</graphml>
