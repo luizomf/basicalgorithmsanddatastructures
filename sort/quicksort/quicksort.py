@@ -38,4 +38,4 @@ def quicksort(a_list: List[TListValue]) -> List[TListValue]:
 
 
 if __name__ == "__main__":
-    doctest.testmod(verbose=True)
+    doctest.testmod(verbose=False)
