@@ -22,10 +22,16 @@ class StackTest(unittest.TestCase):
         stack = Stack()
         self.assertEqual([], stack.peek())
 
-    def test_stack_pop(self):
+    def test_stack_pop_stack_has_values(self):
         stack = Stack()
         stack.append('A')
         self.assertEqual('A', stack.pop())
+
+    def test_stack_pop_stack_empty(self):
+        stack = Stack()
+
+        with self.assertRaises(IndexError):
+            self.assertEqual('A', stack.pop())
 
     def test_stack_str(self):
         stack = Stack()
