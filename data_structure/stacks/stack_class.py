@@ -16,7 +16,6 @@ Também implementamos os métodos dunder a seguir:
 
 from __future__ import annotations
 from typing import List, Any
-from copy import deepcopy
 
 
 class Stack:
@@ -61,30 +60,30 @@ class Stack:
         return bool(self.__data)
 
 
-if __name__ == "__main__":
-    stack = Stack()
+# if __name__ == "__main__":
+    # stack = Stack()
 
-    stack.append('A')
-    stack.append('B')
-    stack.append('C')
+    # stack.append('A')
+    # stack.append('B')
+    # stack.append('C')
 
-    print('FOR:')
-    for item in stack:
-        print(item)
+    # print('FOR:')
+    # for item in stack:
+    #     print(item)
 
-    stack_copy = deepcopy(stack)
-    print('\nWHILE:')
-    while stack_copy:
-        print(stack_copy.pop())
+    # stack_copy = deepcopy(stack)
+    # print('\nWHILE:')
+    # while stack_copy:
+    #     print(stack_copy.pop())
 
-    stack_copy = deepcopy(stack)
-    print('\nWHILE:')
-    while stack_copy:
-        print(stack_copy.pop())
+    # stack_copy = deepcopy(stack)
+    # print('\nWHILE:')
+    # while stack_copy:
+    #     print(stack_copy.pop())
 
-    stack_copy = deepcopy(stack)
-    print('\nWHILE:')
-    while stack_copy:
-        print(stack_copy.pop())
+    # stack_copy = deepcopy(stack)
+    # print('\nWHILE:')
+    # while stack_copy:
+    #     print(stack_copy.pop())
 
-    print('\nStack original:', stack)
+    # print('\nStack original:', stack)

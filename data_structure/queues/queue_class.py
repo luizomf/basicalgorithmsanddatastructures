@@ -39,7 +39,7 @@ class Queue:
         return self.__items[index]
 
 
-if __name__ == "__main__":
+# if __name__ == "__main__":
     # # Instanciando
     # fila = Queue()
 
