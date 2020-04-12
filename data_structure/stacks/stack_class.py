@@ -29,6 +29,7 @@ class Stack:
 
     def append(self, item: Any) -> None:
         """Este método repassa as informações para append da lista original"""
+        self.__index += 1
         self.__data.append(item)
 
     def pop(self) -> Any:

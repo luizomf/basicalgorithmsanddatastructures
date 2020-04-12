@@ -49,9 +49,18 @@ class StackTest(unittest.TestCase):
 
         stack.append('A')
         stack.append('B')
+        stack.append('C')
+        stack.append('D')
+
+        self.assertEqual(next(stack), 'D')
+        self.assertEqual(next(stack), 'C')
+        self.assertEqual(next(stack), 'B')
+        self.assertEqual(next(stack), 'A')
 
         stack_iterator = iter(stack)
 
+        self.assertEqual(next(stack_iterator), 'D')
+        self.assertEqual(next(stack_iterator), 'C')
         self.assertEqual(next(stack_iterator), 'B')
         self.assertEqual(next(stack_iterator), 'A')
 
