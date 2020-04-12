@@ -40,18 +40,18 @@ class Queue:
 
 
 if __name__ == "__main__":
-    # Instanciando
-    fila = Queue()
+    # # Instanciando
+    # fila = Queue()
 
-    # Enfileirando A, B, C e D
-    fila.enqueue('A', 'B', 'C', 'D')
+    # # Enfileirando A, B, C e D
+    # fila.enqueue('A', 'B', 'C', 'D')
 
-    # Obtendo o elemento com índice 1 (B)
-    print('Item com índice 1:', fila[1], end='\n\n')
+    # # Obtendo o elemento com índice 1 (B)
+    # print('Item com índice 1:', fila[1], end='\n\n')
 
-    # Iterando com for em nossa fila
-    for item in fila:
-        print('Iteração:', item)
+    # # Iterando com for em nossa fila
+    # for item in fila:
+    #     print('Iteração:', item)
 
     """
     Resultado:
