@@ -13,6 +13,8 @@ class Vertex:
 
     def add_neighbors(self, *vertex: Vertex) -> None:
         for v in vertex:
+            if not isinstance(v, Vertex):
+                raise TypeError('Must be of type Vertex')
             self.neighbors.append(v)
 
     def clear(self) -> None:
