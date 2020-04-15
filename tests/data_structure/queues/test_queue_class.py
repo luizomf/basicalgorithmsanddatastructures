@@ -7,7 +7,7 @@ class QueuesTest(unittest.TestCase):
         with self.assertRaises(TypeError):
             Queue('A')
 
-    def test_queue_maxlen_param_int(self):
+    def test_queue_maxlen_param_int_is_correct(self):
         Queue(5)
 
     def test_queue_enqueue_one_value(self):
