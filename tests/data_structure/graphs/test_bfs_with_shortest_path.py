@@ -1,5 +1,6 @@
 import unittest
 from data_structure.graphs.bfs_with_shortest_path import Vertex
+from data_structure.graphs.bfs_with_shortest_path import Graph
 
 
 class VertexTest(unittest.TestCase):
@@ -38,3 +39,51 @@ class VertexTest(unittest.TestCase):
     def test_vertex_str(self):
         vertex = Vertex('THIS IS MY NAME')
         self.assertEqual(str(vertex), 'THIS IS MY NAME')
+
+
+class GraphTest(unittest.TestCase):
+    def setUp(self):
+        self.graph = Graph()
+
+        self.vertex_a = Vertex('a')
+        self.vertex_b = Vertex('b')
+        self.vertex_c = Vertex('c')
+        self.vertex_d = Vertex('d')
+        self.vertex_e = Vertex('e')
+        self.vertex_f = Vertex('f')
+
+        self.vertex_a.add_neighbors(self.vertex_b)
+        self.vertex_a.add_neighbors(self.vertex_c)
+        self.vertex_b.add_neighbors(self.vertex_d)
+        self.vertex_b.add_neighbors(self.vertex_e)
+        self.vertex_d.add_neighbors(self.vertex_f)
+        self.vertex_e.add_neighbors(self.vertex_f)
+
+        self.graph.add_vertices(
+            self.vertex_a, self.vertex_b, self.vertex_c, self.vertex_d,
+            self.vertex_e, self.vertex_f
+        )
+
+    def test_graph_content(self):
+        self.assertEqual(
+            str(self.graph.graph),
+            "{'a': a, 'b': b, 'c': c, 'd': d, 'e': e, 'f': f}"
+        )
+
+    def test_graph_shortest_path_from_a_to_b(self):
+        self.assertEqual(
+            self.graph.bfs_algorithm(self.vertex_a, self.vertex_b),
+            [self.vertex_a, self.vertex_b]
+        )
+
+    def test_graph_shortest_path_from_a_to_d(self):
+        self.assertEqual(
+            self.graph.bfs_algorithm(self.vertex_a, self.vertex_d),
+            [self.vertex_a, self.vertex_b, self.vertex_d]
+        )
+
+    def test_graph_shortest_path_from_a_to_f(self):
+        self.assertEqual(
+            self.graph.bfs_algorithm(self.vertex_a, self.vertex_f),
+            [self.vertex_a, self.vertex_b, self.vertex_d, self.vertex_f]
+        )
