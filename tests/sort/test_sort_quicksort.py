@@ -21,5 +21,5 @@ class QuicksortTest(unittest.TestCase):
     def test_quicksort_words(self):
         self.assertEqual(
             quicksort(self.list_of_words),
-            ['Aline', 'Helena', 'João', 'Luiz', 'Maria', 'Zara']
+            ['Aline', 'Helena', 'João', 'Luiz', 'Maria', 'Zar']
         )
