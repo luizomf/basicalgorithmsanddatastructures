@@ -37,8 +37,8 @@ class VertexTest(unittest.TestCase):
         self.assertEqual(len(vertex.neighbors), 0)
 
     def test_vertex_str(self):
-        vertex = Vertex('THIS IS MY NAME')
-        self.assertEqual(str(vertex), 'THIS IS MY NAME')
+        vertex = Vertex('VERTEXNAME')
+        self.assertEqual(str(vertex), 'VERTEXNAME')
 
 
 class GraphTest(unittest.TestCase):
