@@ -9,6 +9,7 @@ class VertexTest(unittest.TestCase):
         self.vertex_b = Vertex('B')
         self.vertex_c = Vertex('C')
         self.vertex_d = Vertex('D')
+        self.vertex_e = Vertex('E')
 
     def test_vertex_name(self):
         self.assertEqual(self.vertex_a.name, 'A')
@@ -86,4 +87,10 @@ class GraphTest(unittest.TestCase):
         self.assertEqual(
             self.graph.bfs_algorithm(self.vertex_a, self.vertex_f),
             [self.vertex_a, self.vertex_b, self.vertex_d, self.vertex_f]
+        )
+
+    def test_graph_shortest_path_from_a_to_e(self):
+        self.assertEqual(
+            self.graph.bfs_algorithm(self.vertex_a, self.vertex_e),
+            [self.vertex_a, self.vertex_b, self.vertex_e]
         )
