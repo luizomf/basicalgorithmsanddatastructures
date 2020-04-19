@@ -50,6 +50,7 @@ if __name__ == "__main__":
     boxes: List[Box] = [
         Box(name='Product Box'), Box(name='Clothing box'),
         Box(name='Items box', has_key=True), Box(name='Books Box'),
-        Box(name='Paper box')
+        Box(name='Paper box'), Box(name='Tool box')
     ]
+
     print(open_boxes(boxes))
