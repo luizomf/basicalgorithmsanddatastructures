@@ -1,5 +1,5 @@
 """
-Recursive function
+Recursive functions
 
 You may use for for better performance.
 
