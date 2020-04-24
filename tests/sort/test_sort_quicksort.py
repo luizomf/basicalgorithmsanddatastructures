@@ -5,6 +5,7 @@ from typing import List
 
 class QuicksortTest(unittest.TestCase):
     def setUp(self):
+        # Default values
         self.list_of_numbers: List[int] = [
             10, 9, 5, 2, 11, 4, 2, 123, 321, 122
         ]
